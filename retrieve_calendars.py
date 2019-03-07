@@ -14,7 +14,6 @@ def retrieve_calendars(service):
     
 
     # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     
     calendar_ids = []
     while True:
