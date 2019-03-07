@@ -25,7 +25,6 @@ def retrieve_calendars(service):
         page_token = calendar_list.get('nextPageToken')
         if not page_token:
             break
-    print(calendar_ids)
     return calendar_ids
     
 
