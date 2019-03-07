@@ -3,7 +3,8 @@ from parse_events import parse_events
 from write_output import write_output
 
 def costedbookings():
-    events = collect_events()
+    filename_all = "legacy/allevents.txt"
+    events = collect_events(filename_all)
     parsed_events = parse_events(events)
     filename = "legacy/test.csv"
     write_output(parsed_events,filename)
