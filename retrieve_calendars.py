@@ -4,8 +4,8 @@ import datetime
 
 
 
-# If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+
+
 
 def retrieve_calendars(service):
     """Shows basic usage of the Google Calendar API.
@@ -29,5 +29,6 @@ def retrieve_calendars(service):
         if not page_token:
             break
     print(calendar_ids)
+    return calendar_ids
     
 

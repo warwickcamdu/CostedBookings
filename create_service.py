@@ -4,7 +4,11 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
 
+
+
 def create_service():
+    # If modifying these scopes, delete the file token.pickle.
+    SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -25,3 +29,4 @@ def create_service():
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
+    return service

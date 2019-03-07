@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/174155899.svg)](https://zenodo.org/badge/latestdoi/174155899) [![Scaladoc](https://javadoc-badge.appspot.com/uk.ac.warwick.camdu/nscala-time_2.11.svg?label=javadoc)](https://erickmartins.github.io/L0Smoothing/) [![Build Status](https://travis-ci.com/erickmartins/L0Smoothing.svg?branch=master)](https://travis-ci.com/erickmartins/L0Smoothing)
+[![DOI](https://zenodo.org/badge/174155899.svg)](https://zenodo.org/badge/latestdoi/174155899) [![Build Status](https://travis-ci.com/erickmartins/CostedBookings.svg?branch=master)](https://travis-ci.com/erickmartins/CostedBookings)
 
 
 
