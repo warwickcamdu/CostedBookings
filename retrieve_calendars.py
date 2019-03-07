@@ -16,15 +16,12 @@ def retrieve_calendars(service):
     # Call the Calendar API
     now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
     
-    events_result = service.events().list(calendarId='primary', timeMin=now,
-                                        maxResults=10, singleEvents=True,
-                                        orderBy='startTime').execute()
     calendar_ids = []
     while True:
         calendar_list = service.calendarList().list().execute()
         for calendar_list_entry in calendar_list['items']:
             if 'mechanochemistry.org' in calendar_list_entry['id']:
-                calendar_ids.append(calendar_list_entry['summary'])
+                calendar_ids.append(calendar_list_entry['id'])
         page_token = calendar_list.get('nextPageToken')
         if not page_token:
             break
