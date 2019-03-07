@@ -2,34 +2,22 @@
 
 
 
-ImageJ plugin auto_qc
+CostedBookings - python project to generate microscope usage costs from Google Calendar  
 
 
-Continuing development by Erick Ratamero, experimental input from Claire Mitchell  
+Continuing development by Erick Ratamero, original work by Claire Mitchell  
 https://www.warwick.ac.uk/camdu
 
-
-Based on the .py scripts from Erick Ratamero:  
-https://github.com/erickmartins/autoQC_jython
-
-
-Auto-generated Javadoc is available:  
-https://erickmartins.github.io/L0Smoothing/
 
 ==========================================================================================
 
 Usage Instructions:
 
-Just open an image and run it!  
-
+Run costedbookings.py, log into your Google account when required. Note that a lot of the code
+is tailor-made for our usage, so you might need to do some adapting.  
 
 
 ==========================================================================================
-Citations:
-
-
-The Code is created based on the method described in the following paper:  
-"Image Smoothing via L0 Gradient Minimization", Li Xu, Cewu Lu, Yi Xu, Jiaya Jia, ACM Transactions on Graphics, (SIGGRAPH Asia 2011), 2011.  
 
 
 
