@@ -1,7 +1,7 @@
 from collect_events import collect_events
 from parse_events import parse_events, get_first_names
 from write_output import write_output, write_hours
-from consolidate_hours import consolidate_hours
+from consolidate_hours import consolidate_hours, add_costcodes
 from cost_hours import cost_hours
 
 def costedbookings():
@@ -16,6 +16,7 @@ def costedbookings():
     parseagain = get_first_names(events)
 
     parsecost = cost_hours(parseagain)
+    parsecost = add_costcodes(parsecost)
 
     filename = "legacy/events_first_name.csv"
     write_output(parsecost,filename)
