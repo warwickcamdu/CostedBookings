@@ -17,6 +17,8 @@ def get_first_names(events):
             if ('displayName' in event['organizer'] and 'summary' in event and 'dateTime' in event['start'] and 'dateTime' in event['end']):
                 timedelta = calculate_time(event['start']['dateTime'],event['end']['dateTime'])
                 booker = event['summary'].replace("/"," ").replace("-"," ").replace(","," ").replace("+"," ").split()[0].title()
+                if 'email' in event['creator']:
+                    booker = booker + " " + event['creator']['email']
                 all_events.append([event['organizer']['displayName'],booker,event['start']['dateTime'],event['end']['dateTime'],timedelta.total_seconds()/3600.0])
     return all_events
 
