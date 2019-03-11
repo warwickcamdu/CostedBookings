@@ -1,14 +1,18 @@
 def generate_costs(frame):
     import pandas as pd
     frame = frame.add_suffix('_summary').reset_index()
+    
     users = frame['user'].unique().tolist()
     newframe = pd.DataFrame(users, columns=['user'])
     for micro in ['DV1', 'DV2', 'UltraVIEW']:
         micro_frame = frame[frame['micro'].str.contains(micro,case=False)]
         for index, row in newframe.iterrows():
+            
             if (micro_frame['user']==row.user).any():
                 newframe.loc[index,micro+'_hours'] = float(micro_frame[micro_frame['user']==row['user']]['cost_hours_summary'])
-        
+            if (micro_frame[micro_frame['user']==row.user]['costcode_summary']).any():
+                
+                newframe.loc[index,'costcode'] = micro_frame[micro_frame['user']==row['user']]['costcode_summary'].iloc[0]
     newframe.fillna(0,inplace=True)
     newframe = add_access(newframe) 
     
@@ -73,12 +77,13 @@ def cleanup(frame):
         for micro in micros:
             if (row[micro+"_hours"]>0):
                 empty = 0
-        print(empty)
         if empty:
             frame.drop(index,inplace=True)
     frame.drop("user", axis=1, inplace=True)
     cols = list(frame.columns.values)
     newcols = [cols[-2],cols[-1]]
-    newcols.extend(cols[:-2])
+    newcols.extend(cols[:1])
+    newcols.extend(cols[2:-2])
+    newcols.extend(cols[1:2])
     frame = frame[newcols]
     return frame
