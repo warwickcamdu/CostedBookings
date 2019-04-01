@@ -1,7 +1,7 @@
 from generate_date import generate_date, increase_month
 
 def test_no_input():
-    assert generate_date() == "2019-02-01T00:00:00.00000Z"
+    assert generate_date() == "2019-03-01T00:00:00.00000Z"
 
 
 def test_with_input():
