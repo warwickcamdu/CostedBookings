@@ -9,7 +9,7 @@ def generate_costs(frame):
         for index, row in newframe.iterrows():
             
             if (micro_frame['user']==row.user).any():
-                newframe.loc[index,micro+'_hours'] = float(micro_frame[micro_frame['user']==row['user']]['cost_hours_summary'])
+                newframe.loc[index,micro+'_hours'] = float(micro_frame[micro_frame['user']==row['user']]['cost_hours_summary'].sum())
             if (micro_frame[micro_frame['user']==row.user]['costcode_summary']).any():
                 
                 newframe.loc[index,'costcode'] = micro_frame[micro_frame['user']==row['user']]['costcode_summary'].iloc[0]

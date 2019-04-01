@@ -25,8 +25,23 @@ def get_first_names(events):
 
 def calculate_time(start,end):
     from datetime import datetime
-    FMT = "%Y-%m-%dT%H:%M:%SZ"
-    tdelta = datetime.strptime(end, FMT) - datetime.strptime(start, FMT)
+    FMT = ["%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S+01:00"]
+    tdelta = 0
+    
+    
+    for form in FMT:
+        try:
+            startdt = datetime.strptime(start, form)
+            
+        except ValueError:
+            pass
+    for form in FMT:
+        try:
+            enddt = datetime.strptime(end, form)
+            
+        except ValueError:
+            pass
+    tdelta = enddt - startdt
     return tdelta
 
 
