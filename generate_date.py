@@ -30,6 +30,21 @@ def generate_last_year(current=None):
     beg_month = "%04d"%year+"-"+"%02d"%month+"-01T00:00:00.00000Z"
     return beg_month
 
+def generate_this_year(current=None):
+    import datetime
+    from strict_rfc3339 import validate_rfc3339
+    if (not current):
+        now = datetime.datetime.now().isoformat('T')+"Z"
+    else:
+        if validate_rfc3339(current):
+            now=current
+        else:
+            return None
+    year = int(now[0:4])
+    #year = year - 1
+    beg_month = "%04d"%year+"-"+"01"+"-01T00:00:00.00000Z"
+    return beg_month
+
 
 def increase_month(date):
     from strict_rfc3339 import validate_rfc3339
