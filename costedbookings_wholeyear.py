@@ -11,7 +11,7 @@ def costedbookings():
 
     parsed_events = parse_events(events)
 
-    filename = "legacy/year_events_full_name.csv"
+    filename = "legacy/year_events_first_name.csv"
     write_output(parsed_events,filename)
 
     parseagain = get_first_names(events)
@@ -19,7 +19,7 @@ def costedbookings():
     parsecost = cost_hours(parseagain)
     parsecost = add_costcodes(parsecost)
 
-    filename = "legacy/year_events_first_name.csv"
+    filename = "legacy/year_events_full_name.csv"
     write_output(parsecost,filename)
     frame = consolidate_hours(parseagain)
     
