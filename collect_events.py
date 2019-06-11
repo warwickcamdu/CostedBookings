@@ -44,8 +44,7 @@ def collect_events_thisyear(filename):
     date_end = increase_month(date_temp)
     service = create_service()
     calendars = retrieve_calendars(service)
-    print(date_begin)
-    print(date_end)
+    
 
     events = retrieve_events(service, calendars, date_begin, date_end)
     #print(events)
