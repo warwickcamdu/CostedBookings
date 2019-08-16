@@ -1,12 +1,7 @@
 from generate_date import generate_date, increase_month
 
 
- """
-   Just a bunch of test functions (note that you might need to
-   change months/years on these tests for them to pass)
-
-    
-    """
+  
 
 def test_no_input():
     assert generate_date() == "2019-07-01T00:00:00.00000Z"
