@@ -4,6 +4,24 @@ from retrieve_events import retrieve_events
 from create_service import create_service
 
 def collect_events(filename):
+    """
+    Sets date limits and retrieves events in the range.
+
+    Creates date objects for the beginning and the end of the period 
+    (in this case, the month before the current one), a Google service, 
+    retrieves the calendars and then the events in the desired range of dates.
+
+    Parameters
+    ----------
+    filename : str
+        filepath where the events will be saved.
+    
+    Returns
+    -------
+    events: list
+        List of events retrieved from the relevant calendars
+
+    """
     date_begin = generate_date()
     date_end = increase_month(date_begin)
     service = create_service()
@@ -20,6 +38,24 @@ def collect_events(filename):
 
 
 def collect_events_allyear(filename):
+    """
+    Sets date limits and retrieves events in the range.
+
+    Creates date objects for the beginning and the end of the period 
+    (in this case, the whole of last year), a Google service, 
+    retrieves the calendars and then the events in the desired range of dates.
+
+    Parameters
+    ----------
+    filename : str
+        filepath where the events will be saved.
+    
+    Returns
+    -------
+    events: list
+        List of events retrieved from the relevant calendars
+
+    """
     date_begin = generate_last_year()
     date_temp = generate_date()
     date_end = increase_month(date_temp)
@@ -39,6 +75,24 @@ def collect_events_allyear(filename):
 
 
 def collect_events_thisyear(filename):
+    """
+    Sets date limits and retrieves events in the range.
+
+    Creates date objects for the beginning and the end of the period 
+    (in this case, the whole of this year), a Google service, 
+    retrieves the calendars and then the events in the desired range of dates.
+
+    Parameters
+    ----------
+    filename : str
+        filepath where the events will be saved.
+    
+    Returns
+    -------
+    events: list
+        List of events retrieved from the relevant calendars
+
+    """
     date_begin = generate_this_year()
     date_temp = generate_date()
     date_end = increase_month(date_temp)

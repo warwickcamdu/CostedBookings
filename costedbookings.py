@@ -6,6 +6,15 @@ from cost_hours import cost_hours
 from generate_costs import generate_costs
 
 def costedbookings():
+    """
+    Main function - sets everything else into motion.
+
+    Collects, parses (in multiple ways) and analyses the calendar
+    events. Writes outputs. This version uses all events from the
+    previous calendar month.
+
+    
+    """
     filename_all = "legacy/allevents.txt"
     events = collect_events(filename_all)
 

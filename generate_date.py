@@ -1,4 +1,10 @@
 def generate_date(current=None):
+    """
+    Generates a date that is the 1st of the previous calendar month.
+    The only trickery here is dealing with timezones/daylight savings
+
+    
+    """
     import datetime
     from strict_rfc3339 import validate_rfc3339
     if (not current):
@@ -15,6 +21,12 @@ def generate_date(current=None):
 
 
 def generate_last_year(current=None):
+    """
+    Generates a date that is the 1st day of the previous calendar yeah.
+    The only trickery here is dealing with timezones/daylight savings
+
+    
+    """
     import datetime
     from strict_rfc3339 import validate_rfc3339
     if (not current):
@@ -31,6 +43,14 @@ def generate_last_year(current=None):
     return beg_month
 
 def generate_this_year(current=None):
+
+    """
+    Generates a date that is the 1st day of the current calendar month.
+    The only trickery here is dealing with timezones/daylight savings
+
+    
+    """
+
     import datetime
     from strict_rfc3339 import validate_rfc3339
     if (not current):
@@ -47,6 +67,14 @@ def generate_this_year(current=None):
 
 
 def increase_month(date):
+
+    """
+    Increases a month on the received date. Needs to account
+    for changing years if December
+
+    
+    """
+
     from strict_rfc3339 import validate_rfc3339
     if not validate_rfc3339(date):
         return None

@@ -7,6 +7,16 @@ from googleapiclient.discovery import build
 
 
 def create_service():
+    """
+    Creates a Google API service.
+
+    Does all the credential stuff necessary to create a google service that will be used to collect calendar events.
+
+    Returns
+    -------
+    A Resource object with methods for interacting with the service.
+
+    """
     # If modifying these scopes, delete the file token.pickle.
     SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
     creds = None

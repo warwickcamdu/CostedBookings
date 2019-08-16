@@ -1,4 +1,25 @@
 def generate_costs(frame):
+
+    """
+    Creates a Dataframe with unique users and costs/costcodes per microscope. 
+
+    From a Dataframe with all users, microscopes and so on,
+    generate a new one with unique users, microscope, actual costs
+    (calculated from cost-hours and microscope-specific costs) and
+    costcodes
+
+    Parameters
+    ----------
+    frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes and cost-hours
+    
+    Returns
+    -------
+    newframe: pd.Dataframe
+        New Dataframe with unique users, costs and costcodes
+
+    
+    """
     import pandas as pd
     frame = frame.add_suffix('_summary').reset_index()
     
@@ -26,6 +47,21 @@ def generate_costs(frame):
 
 
 def add_access(frame):
+    """
+    Adds access level for a given user at a given microscope to Dataframe.
+
+    Parameters
+    ----------
+    frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes and cost-hours
+    
+    Returns
+    -------
+    frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes and cost-hours - plus access levels
+
+    
+    """
     import pandas as pd
     access = pd.read_csv("legacy/emails_gmails_costcodes.csv")
 
@@ -40,12 +76,35 @@ def add_access(frame):
 
 
 def load_costs():
+    """
+    Creates a Dataframe with CSV data for per-microscope costs.
+
+    
+    """
     import pandas as pd
     costs = pd.read_csv("legacy/costs.csv")
     return costs
 
 
 def calculate_costs(frame,costs):
+    """
+    Calculates effective costs based on per-microscope hourly costs and number
+    of cost-hours.
+
+    Parameters
+    ----------
+    frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes and cost-hours
+    costs : pd.Dataframe
+        Dataframe with per-microscope hourly costs
+    
+    Returns
+    -------
+    frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes, cost-hours and actual costs
+
+    
+    """
     micros = ['DV1', 'DV2', 'UltraVIEW']
     titles = ['Deltavision Elite (DV1)', 'Deltavision Personal (DV2)', 'UltraVIEW spinning disk']
     for i in range(len(micros)):
@@ -69,6 +128,22 @@ def calculate_costs(frame,costs):
     return frame
 
 def cleanup(frame):
+    """
+    Does a bit of tidying up on our main Dataframe - splitting user and email,
+    removing empty lines and so on
+
+    Parameters
+    ----------
+    frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes, cost-hours and actual costs
+    
+    Returns
+    -------
+   frame : pd.Dataframe
+        General dataframe with all information regarding users, microscopes, cost-hours and actual costs
+
+    
+    """
     for index, row in frame.iterrows():
         frame.loc[index,'username'] = row['user'].split(" ")[0]
         frame.loc[index,'email'] = row['user'].split(" ")[1]

@@ -3,6 +3,25 @@ import iso8601
 
 def cost_hours(events):
 
+    """
+    Calculates how many cost-hours are in each event.
+
+    Applies all the arcane CAMDU rules to figure out how many cost-hours
+    a certain booking is. Overnights are 4h, weekends are up to 4h, regular
+    hours are just the amount of hours booked. Appends that value to each event.
+
+    Parameters
+    ----------
+    events : list of lists
+        A matrix-like object with details parsed from calendar events.
+    
+    Returns
+    -------
+    events : list of lists
+        A matrix-like object with details parsed from calendar events.
+
+    """
+
     for i in range(len(events)):
         event = events[i]
         time_start = iso8601.parse_date(event[2])

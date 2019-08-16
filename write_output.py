@@ -1,4 +1,11 @@
 def write_output(events, filename):
+
+    """
+    Writes a list of lists to a file (with a header).
+
+    
+    """
+
     import csv
     f = open(filename, "w")
 
@@ -7,6 +14,13 @@ def write_output(events, filename):
     writer.writerows(events)
 
 def write_hours(hours, micros, filename):
+
+    """
+    Not being used.
+
+    
+    """
+
     import csv
     f = open(filename, "w")
 
