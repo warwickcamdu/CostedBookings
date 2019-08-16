@@ -1,3 +1,5 @@
+THIS REPOSITORY IS NOW FURTHER DEVELOPED IN THE CAMDU FORK (https://github.com/warwickcamdu/CostedBookings)
+
 [![DOI](https://zenodo.org/badge/174334892.svg)](https://zenodo.org/badge/latestdoi/174334892) [![Build Status](https://travis-ci.com/erickmartins/CostedBookings.svg?branch=master)](https://travis-ci.com/erickmartins/CostedBookings)
 
 
