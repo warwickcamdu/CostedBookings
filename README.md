@@ -1,4 +1,5 @@
-[![DOI](https://zenodo.org/badge/174334892.svg)](https://zenodo.org/badge/latestdoi/174334892) [![Build Status](https://travis-ci.com/warwickcamdu/CostedBookings.svg?branch=master)](https://travis-ci.com/warwickcamdu/CostedBookings)
+[![DOI](https://zenodo.org/badge/202145023.svg)](https://zenodo.org/badge/latestdoi/202145023)
+ [![Build Status](https://travis-ci.com/warwickcamdu/CostedBookings.svg?branch=master)](https://travis-ci.com/warwickcamdu/CostedBookings)
 
 
 
